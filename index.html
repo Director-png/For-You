@@ -25,7 +25,7 @@
         /* TEXT STYLES */
         .cursive-pink { font-family: 'Dancing Script', cursive; color: #ff758c; font-size: 3.5rem; z-index: 2; margin: 10px 0; }
         .cursive-white { font-family: 'Dancing Script', cursive; color: white; font-size: 3rem; z-index: 2; margin-bottom: 20px; }
-        .white-text { color: white; z-index: 2; font-size: 1.1rem; }
+        .white-text { color: white; z-index: 2; font-size: 1.1rem; padding: 0 20px; }
 
         /* STEP 1: STICKER */
         .sticker-container { width: 150px; height: 150px; border-radius: 50%; overflow: hidden; border: 4px solid #fff; margin-bottom: 20px; z-index: 2; box-shadow: 0 0 20px #ff758c; }
@@ -38,31 +38,26 @@
         .warning-text { color: #ff0000 !important; animation: blink 0.5s infinite; font-weight: bold; }
 
         /* STEP 3: REVEAL BOXES */
-        .reveal-box { width: 85%; max-width: 380px; height: 60px; background: rgba(211, 211, 211, 0.2); border: 1.5px solid rgba(255, 255, 255, 0.4); border-radius: 12px; margin: 8px 0; cursor: pointer; z-index: 2; display: flex; align-items: center; justify-content: center; color: white; transition: 0.3s; }
-        .reveal-box span { font-size: 1.5rem; }
+        .reveal-box { width: 85%; max-width: 380px; height: 60px; background: rgba(211, 211, 211, 0.2); border: 1.5px solid rgba(255, 255, 255, 0.4); border-radius: 12px; margin: 8px 0; cursor: pointer; z-index: 2; display: flex; align-items: center; justify-content: center; color: white; transition: 0.3s; padding: 0 10px; }
         .reveal-box.unlocked { background: rgba(255, 117, 140, 0.4); border-color: #ff758c; font-weight: bold; }
 
-        /* STEP 4: ENVELOPE & LETTER */
-        .message-container { width: 90%; max-width: 400px; height: 400px; display: flex; flex-direction: column; border-radius: 25px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); z-index: 2; }
+        /* STEP 4: ENVELOPE */
+        .message-container { width: 90%; max-width: 400px; height: 350px; display: flex; flex-direction: column; border-radius: 25px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); z-index: 2; }
         .inbox-top { flex: 1; background-color: #ffb6c1; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
         .inbox-bottom { flex: 3; background-color: #ffdab9; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .corner-heart { color: #ff758c; font-size: 2rem; }
-        
         .bow-structure { display: flex; align-items: center; justify-content: center; cursor: pointer; }
         .bow-wing { width: 40px; height: 30px; background-color: #ffb6c1; border-radius: 50%; }
         .wing-left { transform: rotate(-20deg); margin-right: -10px; }
         .wing-right { transform: rotate(20deg); margin-left: -10px; }
         .heart-center { font-size: 2.5rem; color: #ff758c; z-index: 5; }
 
-        .letter-box { width: 90%; max-width: 400px; background-color: #ffdab9; border-radius: 20px; padding: 30px; display: none; flex-direction: column; align-items: center; z-index: 5; }
-        .word { display: inline-block; opacity: 0; filter: blur(5px); transition: all 0.5s ease; margin-right: 4px; color: #ff758c; font-weight: 500; }
+        .letter-box { width: 85%; max-width: 400px; background-color: #ffdab9; border-radius: 20px; padding: 25px; display: none; flex-direction: column; align-items: center; z-index: 5; max-height: 70vh; overflow-y: auto; }
+        .word { display: inline-block; opacity: 0; filter: blur(5px); transition: all 0.5s ease; margin-right: 4px; color: #431018; }
         .word.visible { opacity: 1; filter: blur(0); }
 
         /* STEP 5: FINAL */
-        .final-sticker-container { width: 180px; height: 180px; border-radius: 50%; border: 5px solid rgba(255, 255, 255, 0.3); margin-bottom: 30px; z-index: 2; display: flex; align-items: center; justify-content: center; animation: rotateTeddy 4s ease-in-out infinite; }
-        @keyframes rotateTeddy { 0%, 100% { transform: rotate(-10deg); } 50% { transform: rotate(10deg); } }
+        .final-sticker-container { width: 180px; height: 180px; z-index: 2; display: flex; align-items: center; justify-content: center; }
 
-        /* BUTTONS */
         .pink-btn { background-color: #ff4d6d; color: white; border: none; padding: 14px 45px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; cursor: pointer; z-index: 2; margin-top: 20px; }
 
         @keyframes blink { 0%, 100% {opacity: 1;} 50% {opacity: 0.5;} }
@@ -73,61 +68,57 @@
     <div class="stars"></div>
 
     <audio id="bgMusic" loop>
-        <source src="music.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
 
     <div id="page1" class="bg-style">
         <div class="sticker-container"><img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif"></div>
         <h1 class="cursive-pink" style="color: white;">Hey Beautiful</h1>
-        <p class="white-text">Do You Even Know How Cute Are You?</p>
+        <p class="white-text">Do You Even Know How Cute You Are?</p>
         <button class="pink-btn" onclick="startLoading()">Open My Heart 🤍</button>
     </div>
 
     <div id="page2" class="bg-style">
         <div class="loading-box">
-            <div class="white-text" style="margin-bottom:10px">Measuring your cuteness</div>
+            <div class="white-text" style="margin-bottom:10px; color: white;">Measuring your cuteness...</div>
             <div class="progress-container"><div id="myBar" class="progress-bar"></div></div>
             <div id="statusLabel" style="color:#ff758c">Calculating... <span id="percent">0%</span></div>
         </div>
     </div>
 
     <div id="page3" class="bg-style">
-        <img src="https://img.icons8.com/emoji/96/heart-suit.png" style="width:70px; margin-bottom:10px; z-index:2;">
         <h1 class="cursive-pink">Just for You..!</h1>
-        <p class="white-text" style="margin-bottom: 20px;">Tap each one to reveal</p>
+        <p class="white-text" style="margin-bottom: 20px;">Tap each heart to reveal</p>
         <div class="reveal-box" onclick="reveal(this, 'You look adorable')"><span>♡</span></div>
         <div class="reveal-box" onclick="reveal(this, 'You have the sweetest vibe')"><span>♡</span></div>
         <div class="reveal-box" onclick="reveal(this, 'You make things feel light again')"><span>♡</span></div>
         <div class="reveal-box" onclick="reveal(this, 'You are naturally charming')"><span>♡</span></div>
-        <div class="reveal-box" onclick="reveal(this, 'You make everything feel more special')"><span>♡</span></div>
-        <button class="pink-btn" onclick="transitionPages('page3', 'page4')">See More ➔</button>
+        <div class="reveal-box" onclick="reveal(this, 'You make everything special')"><span>♡</span></div>
+        <button class="pink-btn" onclick="transitionPages('page3', 'page4')">Continue ➔</button>
     </div>
 
     <div id="page4" class="bg-style">
-        <h1 id="noteHeading" class="cursive-white">A little note for you</h1>
-        
+        <h1 id="noteHeading" class="cursive-white">A little note...</h1>
         <div id="envelope" class="message-container">
-            <div class="inbox-top"><span class="corner-heart">❤</span><span class="corner-heart">❤</span></div>
+            <div class="inbox-top"><span style="font-size:1.5rem">❤</span><span style="font-size:1.5rem">❤</span></div>
             <div class="inbox-bottom">
                 <div class="bow-structure" onclick="openLetter()">
                     <div class="bow-wing wing-left"></div>
                     <div class="heart-center">❤</div>
                     <div class="bow-wing wing-right"></div>
                 </div>
-                <div style="color:#ff758c; font-weight:bold; margin-top:10px;">Tap to open</div>
+                <p style="color:#ff758c; font-weight:bold; margin-top:15px;">Tap the heart to open</p>
             </div>
         </div>
-
         <div id="letterBox" class="letter-box">
-            <img src="https://img.icons8.com/emoji/96/heart-suit.png" style="width:40px; margin-bottom:10px;">
-            <div id="letterText" style="text-align:center; line-height:1.6;"></div>
-            <button id="oneMoreBtn" class="pink-btn" style="display:none;" onclick="transitionPages('page4', 'page5')">One more thing ➔</button>
+            <div id="letterText" style="text-align:center; line-height:1.6; font-size: 1.1rem;"></div>
+            <button id="oneMoreBtn" class="pink-btn" style="display:none;" onclick="transitionPages('page4', 'page5')">One last thing ➔</button>
         </div>
     </div>
 
     <div id="page5" class="bg-style">
         <div class="final-sticker-container">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHY5Znd6amZid3VreXo1Nm45Y3FyeHlsbm9pZHFueGZueXh5eHh5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9d3LQ6TdV2Flo8OD6E/giphy.gif">
+            <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/2764_fe0f/512.gif" alt="❤️" width="160">
         </div>
         <h1 class="cursive-white">You'll always be special to me</h1>
     </div>
@@ -145,19 +136,29 @@
         }
 
         function startLoading() {
-            // PLAY MUSIC ON CLICK
             const music = document.getElementById("bgMusic");
-            music.play().catch(e => console.log("Music play blocked by browser"));
+            music.volume = 0;
+            music.play();
+            
+            // FADE IN MUSIC
+            let vol = 0;
+            let fadeInterval = setInterval(() => {
+                if (vol < 1) {
+                    vol += 0.05;
+                    music.volume = Math.min(vol, 1).toFixed(2);
+                } else { clearInterval(fadeInterval); }
+            }, 150);
 
             transitionPages('page1', 'page2');
             let width = 0;
             let bar = document.getElementById("myBar");
             let prc = document.getElementById("percent");
             let stat = document.getElementById("statusLabel");
+            
             let id = setInterval(() => {
                 if (width >= 120) {
                     clearInterval(id);
-                    setTimeout(() => { transitionPages('page2', 'page3'); }, 3500);
+                    setTimeout(() => { transitionPages('page2', 'page3'); }, 2000);
                 } else {
                     width++;
                     bar.style.width = (width > 100 ? 100 : width) + '%';
@@ -168,7 +169,7 @@
                         bar.style.background = "#ff0000";
                     }
                 }
-            }, 50);
+            }, 40);
         }
 
         function reveal(el, text) {
@@ -181,17 +182,15 @@
             document.getElementById('letterBox').style.display = 'flex';
             const msg = "I just want to tell you something.. you really are special in a way that's hard to explain. There's a softness in the way you talk, a sweetness in the way you smile, and something genuine about you that just feels good to be around. You don't try to be anything extra. you're just you, and that's what makes you so lovely.";
             const container = document.getElementById('letterText');
-            const words = msg.split(" ");
-            words.forEach((w, i) => {
+            msg.split(" ").forEach((w, i) => {
                 let s = document.createElement('span');
                 s.innerHTML = w + " ";
                 s.className = 'word';
                 container.appendChild(s);
-                setTimeout(() => s.classList.add('visible'), i * 250);
+                setTimeout(() => s.classList.add('visible'), i * 200);
             });
-            setTimeout(() => { document.getElementById('oneMoreBtn').style.display = 'block'; }, words.length * 255);
+            setTimeout(() => { document.getElementById('oneMoreBtn').style.display = 'block'; }, msg.split(" ").length * 205);
         }
     </script>
-</body>  
+</body>
 </html>
-
